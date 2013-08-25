@@ -57,7 +57,7 @@ public:
      @param numLiveNeighbors how many adjacent cells are alive
      @return the new state (alive or dead) of the cell
      */
-    int evolveCell(const int curState, const int numLiveNeigbors) const;
+    int evolveCell(const int curState, const int numLiveNeighbors) const;
 
     /**
      Evolve a whole board one cycle.

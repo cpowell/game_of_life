@@ -45,7 +45,7 @@ int Board::getLiveNeighborCountForCell(const int x, const int y) const {
     return live;
 }
 
-int Board::evolveCell(const int curState, const int numLiveNeigbors) const {
+int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
     if (curState==ALIVE) {
         if (numLiveNeigbors < 2 || numLiveNeigbors > 3)
             return DEAD;
