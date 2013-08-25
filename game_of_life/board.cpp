@@ -45,9 +45,6 @@ int Board::getLiveNeighborCountForCell(const int x, const int y) const {
 int Board::evolveCell(const int curState, const int numLiveNeigbors) const {
     //TODO bounds checking
 
-//    int state = _cells[x][y];
-//    int numNeighbors = getLiveNeighborCountForCell(x, y);
-
     if (curState==ALIVE) {
         if (numLiveNeigbors < 2 || numLiveNeigbors > 3)
             return DEAD;
@@ -58,12 +55,24 @@ int Board::evolveCell(const int curState, const int numLiveNeigbors) const {
     return curState;
 }
 
+// Single-threaded, original version:
+//void Board::evolve(const Board &previousBoard) {
+//    for (int x=0; x<BOARD_WIDTH; ++x) {
+//        for (int y=0; y<BOARD_HEIGHT; ++y) {
+//            _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
+//        }
+//    }
+//}
+
+// Multithreaded TBB version (example):
 void Board::evolve(const Board &previousBoard) {
-    for (int x=0; x<BOARD_WIDTH; ++x) {
+    //  for each cell, compute in parallel its state for the next epoch,
+    //  based on the number of the alive neighbours
+    tbb::parallel_for(0, BOARD_WIDTH, [&](int x) {
         for (int y=0; y<BOARD_HEIGHT; ++y) {
             _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
         }
-    }
+    });
 }
 
 void Board::randomize(const int ratio) {

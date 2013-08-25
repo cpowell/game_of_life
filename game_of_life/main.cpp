@@ -24,10 +24,11 @@ int main(int argc, const char * argv[]) {
     srand(time(NULL));
     flip.randomize(15);
 
-    for (int c=0; c<30; ++c) {
+//    for (int c=0; c<300000; ++c) {
+    while (true) {
         flop.evolve(flip);
-        flop.print();
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
+//        flop.print();
+//        std::this_thread::sleep_for(std::chrono::milliseconds(250));
         swapBoards(flip, flop);
     }
 
