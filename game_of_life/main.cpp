@@ -7,12 +7,29 @@
 //
 
 #include <iostream>
+#include <chrono>
+#include <thread>
+#include "board.h"
 
-int main(int argc, const char * argv[])
-{
+void swapBoards(Board &one, Board &two) {
+    Board temp = one;
+    one = two;
+    two = temp;
+}
 
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main(int argc, const char * argv[]) {
+
+    Board flip, flop;
+
+    flip.randomize(15);
+
+    for (int c=0; c<30; ++c) {
+        flop.evolve(flip);
+        flop.print();
+        std::this_thread::sleep_for(std::chrono::milliseconds(250));
+        swapBoards(flip, flop);
+    }
+
     return 0;
 }
 
