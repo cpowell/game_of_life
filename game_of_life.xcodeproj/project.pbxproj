@@ -36,6 +36,8 @@
 		8302DBFB17C9724A0062F4EB /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board.h; sourceTree = "<group>"; };
 		835D2EDA17C9C09D002228D4 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = tbb41_20130613oss/lib/libtbb.dylib; sourceTree = "<group>"; };
 		835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = tbb41_20130613oss/lib/libtbbmalloc.dylib; sourceTree = "<group>"; };
+		835D2EE317C9D21D002228D4 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		835D2EE417C9D21D002228D4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +56,9 @@
 		8302DBE217C969D20062F4EB = {
 			isa = PBXGroup;
 			children = (
-				835D2EDA17C9C09D002228D4 /* libtbb.dylib */,
-				835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */,
+				835D2EE317C9D21D002228D4 /* LICENSE */,
+				835D2EE417C9D21D002228D4 /* README.md */,
+				835D2EE017C9D091002228D4 /* libs */,
 				8302DBED17C969D20062F4EB /* game_of_life */,
 				8302DBEC17C969D20062F4EB /* Products */,
 			);
@@ -77,6 +80,15 @@
 				8302DBEE17C969D20062F4EB /* main.cpp */,
 			);
 			path = game_of_life;
+			sourceTree = "<group>";
+		};
+		835D2EE017C9D091002228D4 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				835D2EDA17C9C09D002228D4 /* libtbb.dylib */,
+				835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
