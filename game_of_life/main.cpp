@@ -21,6 +21,7 @@ int main(int argc, const char * argv[]) {
 
     Board flip, flop;
 
+    srand(time(NULL));
     flip.randomize(15);
 
     for (int c=0; c<30; ++c) {
