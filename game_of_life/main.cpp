@@ -12,7 +12,7 @@
 #include "board.h"
 
 // Forward declaration
-void swapBoards(Board, Board);
+void swapBoards(Board&, Board&);
 
 int main(int argc, const char * argv[]) {
 
