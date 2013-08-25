@@ -12,8 +12,8 @@
 #include <iostream>
 #include <tbb/tbb.h>
 
-const int BOARD_WIDTH  = 15;
-const int BOARD_HEIGHT = 15;
+const int BOARD_WIDTH  = 25;
+const int BOARD_HEIGHT = 25;
 
 const int ALIVE = 1;
 const int DEAD  = 0;
