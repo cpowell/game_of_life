@@ -79,7 +79,10 @@ void Board::randomize(const int ratio) {
 void Board::print() {
     for (int y=0; y<BOARD_HEIGHT; ++y) {
         for (int x=0; x<BOARD_WIDTH; ++x) {
-            std::cout << _cells[x][y];
+            if (_cells[x][y]==1)
+                std::cout<< "*";
+            else
+                std::cout<< " ";
         }
         std::cout << std::endl;
     }
