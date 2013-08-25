@@ -11,20 +11,20 @@
 #include <thread>
 #include "board.h"
 
-void swapBoards(Board &one, Board &two) {
-    Board temp = one;
-    one = two;
-    two = temp;
-}
+// Forward declaration
+void swapBoards(Board, Board);
 
 int main(int argc, const char * argv[]) {
 
+    // There are two boards defined; the one "in back" is updated based
+    // on the current status of the one "in front", then brought to the
+    // front. Efficient, and kind to memory.
     Board flip, flop;
 
-    srand(time(NULL));
+    // Seed the RNG and set up a random smattering of live cells.
+    srand((unsigned int) time(NULL));
     flip.randomize(20);
 
-//    for (int c=0; c<300000; ++c) {
     while (true) {
         flop.evolve(flip);
         flop.print();
@@ -33,5 +33,16 @@ int main(int argc, const char * argv[]) {
     }
 
     return 0;
+}
+
+/**
+ A textbook 'swap' function using pass-by-reference.
+ @param one is a reference to the first board
+ @param two is a reference to the second board
+ */
+void swapBoards(Board &one, Board &two) {
+    Board temp = one;
+    one = two;
+    two = temp;
 }
 

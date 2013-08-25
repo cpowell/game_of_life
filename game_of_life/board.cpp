@@ -66,12 +66,14 @@ int Board::evolveCell(const int curState, const int numLiveNeigbors) const {
 
 // Multithreaded TBB version (example):
 void Board::evolve(const Board &previousBoard) {
+    // The lambda doesn't need to be defined separately like this;
+    // this is just to help readability.
     auto lambda = [&](int x) {
         for (int y=0; y<BOARD_HEIGHT; ++y) {
             _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
         }
     };
-    
+
     tbb::parallel_for(0, BOARD_WIDTH, lambda);
 }
 
