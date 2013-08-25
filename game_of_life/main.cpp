@@ -4,6 +4,9 @@
 //
 //  Created by Chris Powell on 8/24/13.
 //  Copyright (c) 2013 Prylis Inc. All rights reserved.
+//  http://github.com/cpowell/game_of_life
+//  You can redistribute and/or modify this software only in accordance with
+//  the terms found in the "LICENSE" file included with the source code.
 //
 
 #include <iostream>
@@ -25,10 +28,17 @@ int main(int argc, const char * argv[]) {
     srand((unsigned int) time(NULL));
     flip.randomize(20);
 
+    // This routine evolves and prints the board forever; you must
+    // terminate the program.
     while (true) {
         flop.evolve(flip);
+
+        // To see the Intel TBB parallelism at work, comment out these
+        // next two lines to let the program run unfettered. It will
+        // maximize your available cores.
         flop.print();
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+
         swapBoards(flip, flop);
     }
 

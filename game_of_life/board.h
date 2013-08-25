@@ -4,6 +4,9 @@
 //
 //  Created by Chris Powell on 8/24/13.
 //  Copyright (c) 2013 Prylis Inc. All rights reserved.
+//  http://github.com/cpowell/game_of_life
+//  You can redistribute and/or modify this software only in accordance with
+//  the terms found in the "LICENSE" file included with the source code.
 //
 
 #ifndef __game_of_life__board__
