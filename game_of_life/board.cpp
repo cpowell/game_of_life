@@ -66,13 +66,13 @@ int Board::evolveCell(const int curState, const int numLiveNeigbors) const {
 
 // Multithreaded TBB version (example):
 void Board::evolve(const Board &previousBoard) {
-    //  for each cell, compute in parallel its state for the next epoch,
-    //  based on the number of the alive neighbours
-    tbb::parallel_for(0, BOARD_WIDTH, [&](int x) {
+    auto lambda = [&](int x) {
         for (int y=0; y<BOARD_HEIGHT; ++y) {
             _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
         }
-    });
+    };
+    
+    tbb::parallel_for(0, BOARD_WIDTH, lambda);
 }
 
 void Board::randomize(const int ratio) {
