@@ -10,6 +10,7 @@
 #define __game_of_life__board__
 
 #include <iostream>
+#include <tbb/tbb.h>
 
 const int BOARD_WIDTH  = 15;
 const int BOARD_HEIGHT = 15;

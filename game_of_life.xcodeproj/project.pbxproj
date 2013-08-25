@@ -9,17 +9,23 @@
 /* Begin PBXBuildFile section */
 		8302DBEF17C969D20062F4EB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8302DBEE17C969D20062F4EB /* main.cpp */; };
 		8302DBFC17C9724A0062F4EB /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8302DBFA17C9724A0062F4EB /* board.cpp */; };
+		835D2EDC17C9C09D002228D4 /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D2EDA17C9C09D002228D4 /* libtbb.dylib */; };
+		835D2EDD17C9C09D002228D4 /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */; };
+		835D2EDE17C9C0F1002228D4 /* libtbb.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 835D2EDA17C9C09D002228D4 /* libtbb.dylib */; };
+		835D2EDF17C9C0F1002228D4 /* libtbbmalloc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8302DBE917C969D20062F4EB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				835D2EDE17C9C0F1002228D4 /* libtbb.dylib in CopyFiles */,
+				835D2EDF17C9C0F1002228D4 /* libtbbmalloc.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -28,6 +34,8 @@
 		8302DBEE17C969D20062F4EB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8302DBFA17C9724A0062F4EB /* board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board.cpp; sourceTree = "<group>"; };
 		8302DBFB17C9724A0062F4EB /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board.h; sourceTree = "<group>"; };
+		835D2EDA17C9C09D002228D4 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = tbb41_20130613oss/lib/libtbb.dylib; sourceTree = "<group>"; };
+		835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = tbb41_20130613oss/lib/libtbbmalloc.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835D2EDC17C9C09D002228D4 /* libtbb.dylib in Frameworks */,
+				835D2EDD17C9C09D002228D4 /* libtbbmalloc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +54,8 @@
 		8302DBE217C969D20062F4EB = {
 			isa = PBXGroup;
 			children = (
+				835D2EDA17C9C09D002228D4 /* libtbb.dylib */,
+				835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */,
 				8302DBED17C969D20062F4EB /* game_of_life */,
 				8302DBEC17C969D20062F4EB /* Products */,
 			);
@@ -199,6 +211,13 @@
 		8302DBF517C969D20062F4EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = tbb41_20130613oss/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/chris/Code/c-cpp/game_of_life",
+					"/Users/chris/Code/c-cpp/game_of_life/tbb41_20130613oss/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -206,6 +225,13 @@
 		8302DBF617C969D20062F4EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = tbb41_20130613oss/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/chris/Code/c-cpp/game_of_life",
+					"/Users/chris/Code/c-cpp/game_of_life/tbb41_20130613oss/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -229,6 +255,7 @@
 				8302DBF617C969D20062F4EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
