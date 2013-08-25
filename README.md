@@ -6,6 +6,6 @@ This source code is inspired by Ruslans' post, "Introduction to high-level multi
 
 ## License
 
-The bundled Intel TBB libraries are distributed under the GNU General Public License version 2, with the so-calle "Runtime Exception".
+The bundled Intel TBB libraries are distributed under the GNU General Public License version 2, with the so-called “Runtime Exception”. (See http://www.threadingbuildingblocks.org/faq/10 )
 
 All other source code in this repository is licensed under The MIT License; see the LICENSE file for details.
