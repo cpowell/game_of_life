@@ -11,3 +11,7 @@ This source code is inspired by Ruslans' post, "Introduction to high-level multi
 The bundled Intel TBB libraries are distributed under the GNU General Public License version 2, with the so-called “Runtime Exception”. (See http://www.threadingbuildingblocks.org/faq/10 )
 
 All other source code in this repository is licensed under The MIT License; see the LICENSE file for details.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/cpowell/game_of_life/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
