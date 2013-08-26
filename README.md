@@ -2,6 +2,8 @@
 
 This is Conway's "Game of Life" in C++ with Intel Threading Building Blocks (TBB).
 
+![run example](https://raw.github.com/cpowell/game_of_life/master/animation.gif)
+
 This source code is inspired by Ruslans' post, "Introduction to high-level multithreading in C++ via Intel TBB library" at http://blog.ruslans.com/2013/08/introduction-to-high-level.html
 
 ## License
