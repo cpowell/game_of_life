@@ -54,10 +54,10 @@
 			isa = PBXGroup;
 			children = (
 				831E900417CEC336006AB6C9 /* Source Code */,
-				835D2EE317C9D21D002228D4 /* LICENSE */,
-				835D2EE417C9D21D002228D4 /* README.md */,
 				839802FB17CEC5A200D95242 /* Frameworks */,
 				8302DBEC17C969D20062F4EB /* Products */,
+				835D2EE317C9D21D002228D4 /* LICENSE */,
+				835D2EE417C9D21D002228D4 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
