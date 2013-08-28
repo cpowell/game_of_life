@@ -7,37 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8302DBEF17C969D20062F4EB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8302DBEE17C969D20062F4EB /* main.cpp */; };
-		8302DBFC17C9724A0062F4EB /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8302DBFA17C9724A0062F4EB /* board.cpp */; };
-		835D2EDC17C9C09D002228D4 /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D2EDA17C9C09D002228D4 /* libtbb.dylib */; };
-		835D2EDD17C9C09D002228D4 /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */; };
-		835D2EDE17C9C0F1002228D4 /* libtbb.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 835D2EDA17C9C09D002228D4 /* libtbb.dylib */; };
-		835D2EDF17C9C0F1002228D4 /* libtbbmalloc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */; };
+		831E900D17CEC37E006AB6C9 /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831E900B17CEC37E006AB6C9 /* board.cpp */; };
+		831E900E17CEC37E006AB6C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831E900C17CEC37E006AB6C9 /* main.cpp */; };
+		839802F817CEC51C00D95242 /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 839802F717CEC51C00D95242 /* libtbb.dylib */; };
+		839802FA17CEC52B00D95242 /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 839802F917CEC52B00D95242 /* libtbbmalloc.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8302DBE917C969D20062F4EB /* CopyFiles */ = {
+		8302DBE917C969D20062F4EB /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				835D2EDE17C9C0F1002228D4 /* libtbb.dylib in CopyFiles */,
-				835D2EDF17C9C0F1002228D4 /* libtbbmalloc.dylib in CopyFiles */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8302DBEB17C969D20062F4EB /* game_of_life */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = game_of_life; sourceTree = BUILT_PRODUCTS_DIR; };
-		8302DBEE17C969D20062F4EB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8302DBFA17C9724A0062F4EB /* board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board.cpp; sourceTree = "<group>"; };
-		8302DBFB17C9724A0062F4EB /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board.h; sourceTree = "<group>"; };
-		835D2EDA17C9C09D002228D4 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = tbb41_20130613oss/lib/libtbb.dylib; sourceTree = "<group>"; };
-		835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = tbb41_20130613oss/lib/libtbbmalloc.dylib; sourceTree = "<group>"; };
+		831E900B17CEC37E006AB6C9 /* board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board.cpp; sourceTree = "<group>"; };
+		831E900C17CEC37E006AB6C9 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		831E901017CEC385006AB6C9 /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board.h; sourceTree = "<group>"; };
 		835D2EE317C9D21D002228D4 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		835D2EE417C9D21D002228D4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		839802F717CEC51C00D95242 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = ext/tbb41_20130613oss/lib/libtbb.dylib; sourceTree = "<group>"; };
+		839802F917CEC52B00D95242 /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = ext/tbb41_20130613oss/lib/libtbbmalloc.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835D2EDC17C9C09D002228D4 /* libtbb.dylib in Frameworks */,
-				835D2EDD17C9C09D002228D4 /* libtbbmalloc.dylib in Frameworks */,
+				839802FA17CEC52B00D95242 /* libtbbmalloc.dylib in Frameworks */,
+				839802F817CEC51C00D95242 /* libtbb.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,11 +53,11 @@
 		8302DBE217C969D20062F4EB = {
 			isa = PBXGroup;
 			children = (
+				831E900417CEC336006AB6C9 /* Source Code */,
+				839802FB17CEC5A200D95242 /* Frameworks */,
+				8302DBEC17C969D20062F4EB /* Products */,
 				835D2EE317C9D21D002228D4 /* LICENSE */,
 				835D2EE417C9D21D002228D4 /* README.md */,
-				835D2EE017C9D091002228D4 /* libs */,
-				8302DBED17C969D20062F4EB /* game_of_life */,
-				8302DBEC17C969D20062F4EB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,23 +69,47 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8302DBED17C969D20062F4EB /* game_of_life */ = {
+		831E900417CEC336006AB6C9 /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				8302DBFA17C9724A0062F4EB /* board.cpp */,
-				8302DBFB17C9724A0062F4EB /* board.h */,
-				8302DBEE17C969D20062F4EB /* main.cpp */,
+				831E900F17CEC385006AB6C9 /* include */,
+				831E900A17CEC37E006AB6C9 /* src */,
+				831E901117CEC399006AB6C9 /* test */,
 			);
-			path = game_of_life;
+			name = "Source Code";
 			sourceTree = "<group>";
 		};
-		835D2EE017C9D091002228D4 /* libs */ = {
+		831E900A17CEC37E006AB6C9 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				835D2EDA17C9C09D002228D4 /* libtbb.dylib */,
-				835D2EDB17C9C09D002228D4 /* libtbbmalloc.dylib */,
+				831E900B17CEC37E006AB6C9 /* board.cpp */,
+				831E900C17CEC37E006AB6C9 /* main.cpp */,
 			);
-			name = libs;
+			path = src;
+			sourceTree = "<group>";
+		};
+		831E900F17CEC385006AB6C9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				831E901017CEC385006AB6C9 /* board.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		831E901117CEC399006AB6C9 /* test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		839802FB17CEC5A200D95242 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				839802F917CEC52B00D95242 /* libtbbmalloc.dylib */,
+				839802F717CEC51C00D95242 /* libtbb.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,7 +121,7 @@
 			buildPhases = (
 				8302DBE717C969D20062F4EB /* Sources */,
 				8302DBE817C969D20062F4EB /* Frameworks */,
-				8302DBE917C969D20062F4EB /* CopyFiles */,
+				8302DBE917C969D20062F4EB /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -142,8 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8302DBEF17C969D20062F4EB /* main.cpp in Sources */,
-				8302DBFC17C9724A0062F4EB /* board.cpp in Sources */,
+				831E900E17CEC37E006AB6C9 /* main.cpp in Sources */,
+				831E900D17CEC37E006AB6C9 /* board.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,11 +245,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				HEADER_SEARCH_PATHS = tbb41_20130613oss/include;
+				HEADER_SEARCH_PATHS = ./ext/tbb41_20130613oss/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/chris/Code/c-cpp/game_of_life",
-					"/Users/chris/Code/c-cpp/game_of_life/tbb41_20130613oss/lib",
+					./ext/tbb41_20130613oss/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -238,11 +258,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				HEADER_SEARCH_PATHS = tbb41_20130613oss/include;
+				HEADER_SEARCH_PATHS = ./ext/tbb41_20130613oss/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/chris/Code/c-cpp/game_of_life",
-					"/Users/chris/Code/c-cpp/game_of_life/tbb41_20130613oss/lib",
+					./ext/tbb41_20130613oss/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
