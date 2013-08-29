@@ -16,5 +16,5 @@ TEST(board_test, try_1)
 
 TEST(board_test, try_2)
 {
-    EXPECT_EQ(2, 3);
+    EXPECT_EQ(2, 2);
 }
