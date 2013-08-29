@@ -35,6 +35,9 @@ install_manifest.txt
 Testing
 CTestTestfile.cmake
 Makefile
+run_unit_tests
 
 # Gtest stuf
 ext/gtest-1.6.0/*.a
+ext/googletest-read-only/*.a
+.svn
