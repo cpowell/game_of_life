@@ -6,6 +6,16 @@ This is Conway's "Game of Life" in C++ with Intel Threading Building Blocks (TBB
 
 This source code is inspired by Ruslans' post, "Introduction to high-level multithreading in C++ via Intel TBB library" at http://blog.ruslans.com/2013/08/introduction-to-high-level.html
 
+## Building and testing
+
+This project leverages CMake and Google Test. The following will build the game, build the test binary, and run the tests from the command line:
+
+```
+cd build && cmake .. && cmake .. && make && ctest
+```
+
+(Yes, run "cmake .." twice. There appears to be a CMake bug or GTest bug that misses the google test configuration the first time.)
+
 ## License
 
 The bundled Intel TBB libraries are distributed under the GNU General Public License version 2, with the so-called “Runtime Exception”. (See http://www.threadingbuildingblocks.org/faq/10 )
