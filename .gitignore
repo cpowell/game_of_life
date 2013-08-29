@@ -25,3 +25,15 @@ doxygenWarnings.txt
 Pods
 profile
 xcuserdata
+
+# CMake stuff
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+Testing
+CTestTestfile.cmake
+
+# Gtest stuf
+ext/gtest-1.6.0/*.a
