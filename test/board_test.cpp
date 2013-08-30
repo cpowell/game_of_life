@@ -38,17 +38,77 @@ namespace {
             // before the destructor).
         }
 
-        // Objects declared here can be used by all tests in the test case for Foo.
+        // Objects declared here can be used by all tests in the test case for Board.
+        Board b;
     };
 
-    TEST(BoardTest, testEvolution)
+    TEST_F(BoardTest, testDeadCellShouldStayDeadForNotThreeNeighbors)
     {
+        int ret = b.evolveCell(0, 0);
+        EXPECT_EQ(0, ret);
 
+        ret = b.evolveCell(0, 1);
+        EXPECT_EQ(0, ret);
+
+        ret = b.evolveCell(0, 2);
+        EXPECT_EQ(0, ret);
+
+        ret = b.evolveCell(0, 4);
+        EXPECT_EQ(0, ret);
+
+        ret = b.evolveCell(0, 5);
+        EXPECT_EQ(0, ret);
+
+        ret = b.evolveCell(0, 6);
+        EXPECT_EQ(0, ret);
+
+        ret = b.evolveCell(0, 7);
+        EXPECT_EQ(0, ret);
+
+        ret = b.evolveCell(0, 8);
+        EXPECT_EQ(0, ret);
     }
 
-    TEST(BoardTest, try_2)
+    TEST_F(BoardTest, testDeadCellComesAliveWithThreeNeighbors)
     {
-        EXPECT_EQ(2, 2);
+        int val = b.evolveCell(0,3);
+        EXPECT_EQ(1, val);
+    }
+
+    TEST_F(BoardTest, testLiveCellDiesWithNotThreeNeighbors)
+    {
+        int val = b.evolveCell(0, 0);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 1);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 2);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 4);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 5);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 6);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 7);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 8);
+        EXPECT_EQ(0, val);
+
+        val = b.evolveCell(0, 9);
+        EXPECT_EQ(0, val);
+    }
+
+    TEST_F(BoardTest, testLiveCellStaysAliveWithThreeNeighbors)
+    {
+        int val = b.evolveCell(1, 3);
+        EXPECT_EQ(1, val);
     }
 
 }
