@@ -11,10 +11,12 @@ This source code is inspired by Ruslans' post, "Introduction to high-level multi
 This project leverages CMake and Google Test. The following will build the game, build the test binary, and run the tests from the command line:
 
 ```
-cd build && cmake .. && cmake .. && make && ctest
+mkdir build && cd build && cmake .. && cmake .. && make && ctest
 ```
 
 (Yes, run "cmake .." twice. There appears to be a CMake bug or GTest bug that misses the google test configuration the first time.)
+
+The code requires a complier that understands the C++11 standard. Clang/LLVM does this, as does GCC 4.8 or so. Mac OS X Mountain Lion users should be able to build the project either via XCode or the command line with no trouble.
 
 ## License
 
