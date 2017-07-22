@@ -17,8 +17,7 @@
 // Forward declaration
 void swapBoards(Board&, Board&);
 
-int main(int argc, const char * argv[]) {
-
+int main() {
     // There are two boards defined; the one "in back" is updated based
     // on the current status of the one "in front", then brought to the
     // front. Efficient, and kind to memory.
@@ -37,7 +36,7 @@ int main(int argc, const char * argv[]) {
         // next two lines to let the program run unfettered. It will
         // maximize your available cores.
         flop.print();
-        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(150));
 
         swapBoards(flip, flop);
     }

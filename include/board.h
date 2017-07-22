@@ -9,8 +9,9 @@
 //  the terms found in the "LICENSE" file included with the source code.
 //
 
-#ifndef __game_of_life__board__
-#define __game_of_life__board__
+#pragma once
+
+
 
 #include <iostream>
 #include <tbb/tbb.h>
@@ -76,5 +77,3 @@ public:
      */
     void print();
 };
-
-#endif /* defined(__game_of_life__board__) */
