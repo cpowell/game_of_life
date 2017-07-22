@@ -1,0 +1,9 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.associations": {
+        "__locale": "cpp",
+        "iostream": "cpp",
+        "bitset": "cpp",
+        "cmakeccompilerid.c": "cpp"
+    }
+}
