@@ -9,7 +9,6 @@
                 "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
                 "/usr/include",
                 "/usr/include/machine",
-                "/usr/local/Cellar/tbb/4.4-20161128/include/tbb",
                 "${workspaceRoot}",
                 "${workspaceRoot}/src",
                 "${workspaceRoot}/include",
