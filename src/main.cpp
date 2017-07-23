@@ -14,9 +14,6 @@
 #include <thread>
 #include "board.h"
 
-// Forward declaration
-void swapBoards(Board&, Board&);
-
 int main() {
     // There are two boards defined; the one "in back" is updated based
     // on the current status of the one "in front", then brought to the
@@ -38,20 +35,8 @@ int main() {
         flop.print();
         // std::this_thread::sleep_for(std::chrono::milliseconds(150));
 
-        swapBoards(flip, flop);
+        std::swap(flip, flop);
     }
 
     return 0;
 }
-
-/**
- A textbook 'swap' function using pass-by-reference.
- @param one is a reference to the first board
- @param two is a reference to the second board
- */
-void swapBoards(Board &one, Board &two) {
-    Board temp = one;
-    one = two;
-    two = temp;
-}
-
