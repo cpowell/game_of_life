@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 2.8.9)
-set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+cmake_minimum_required(VERSION 3.27)
+#set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
 project(GOL)
 
 add_subdirectory (src)
@@ -8,7 +8,7 @@ add_subdirectory (src)
 # Testing stuff...
 
 # Enable a 'test' build target
-enable_testing()
+#enable_testing()
 
 #--------------
 # Unit Tests
@@ -21,10 +21,10 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 
 # Since we're using real classes via fixtures, we're going
 # to need TBB linked.
-link_directories(${CMAKE_SOURCE_DIR}/ext/tbb41_20130613oss/lib)
+#link_directories(${CMAKE_SOURCE_DIR}/ext/tbb41_20130613oss/lib)
 
 # For ctest / make test
-add_test(NAME UnitTests COMMAND run_unit_tests)
+#add_test(NAME UnitTests COMMAND run_unit_tests)
 
 # Make a standalone test executable (separate from ctest / make test)
 add_executable(run_unit_tests ${TEST_SRCS})
@@ -36,5 +36,5 @@ target_link_libraries(run_unit_tests gtest gtest_main tbb tbbmalloc)
 # Google Test
 #
 
-ADD_SUBDIRECTORY (ext/googletest-read-only)
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+#ADD_SUBDIRECTORY (ext/googletest-read-only)
+#include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})

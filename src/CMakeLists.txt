@@ -1,6 +1,6 @@
 # Include the directory itself as a path to include directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+#set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
@@ -12,5 +12,5 @@ file(GLOB GOL_SOURCES *.cpp)
 add_executable(gol ${GOL_SOURCES})
 
 # Link to the bundled Intel TBB libs
-link_directories(${CMAKE_SOURCE_DIR}/ext/tbb41_20130613oss/lib)
-target_link_libraries(gol tbb tbbmalloc)
+#link_directories(${CMAKE_SOURCE_DIR}/ext/tbb41_20130613oss/lib)
+target_link_libraries(gol tbb12)

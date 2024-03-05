@@ -41,3 +41,4 @@ run_unit_tests
 ext/gtest-1.6.0/*.a
 ext/googletest-read-only/*.a
 .svn
+/Default

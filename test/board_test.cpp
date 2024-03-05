@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include "gtest/gtest.h"
-#include "../include/board.h"
+#include "board.h"
 
 namespace {
 
