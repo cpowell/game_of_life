@@ -28,25 +28,26 @@ const int DEAD = 0;
 class Board {
 
 private:
-    int _cells[BOARD_WIDTH][BOARD_HEIGHT] = {};
+    //         ROWS          COLS
+    int _cells[BOARD_HEIGHT][BOARD_WIDTH] = {};
 
 public:
     /**
      Retrieve the live/dead status of the given cell.
-     @param x the x coordinate
-     @param y the y coordinate
+     @param row the x coordinate
+     @param col the y coordinate
      @return 1 for alive, 0 for dead
      */
-    int getCell(const int x, const int y) const;
+    int getCell(const int col, const int row) const;
 
     /**
      Look at all adjacent cells and count how many are 'alive'.
 
-     @param x the x coordinate of the 'interesting' cell
-     @param y the y coordinate of the 'interesting' cell
+     @param row the x coordinate of the 'interesting' cell
+     @param col the y coordinate of the 'interesting' cell
      @return the number of adjacent live cells
      */
-    int getLiveNeighborCountForCell(const int x, const int y) const;
+    int getLiveNeighborCountForCell(const int col, const int row) const;
 
     /**
      Evolve a cell based on the number of live neighbors it has.

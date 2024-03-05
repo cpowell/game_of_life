@@ -11,35 +11,35 @@
 
 #include "board.h"
 
-int Board::getCell(const int x, const int y) const {
-    return _cells[x][y];
+int Board::getCell(const int col, const int row) const {
+    return _cells[row][col];
 }
 
-int Board::getLiveNeighborCountForCell(const int x, const int y) const {
-    int above = y - 1;
+int Board::getLiveNeighborCountForCell(const int col, const int row) const {
+    int above = row - 1;
     if (above < 0)
         above = BOARD_HEIGHT;
 
-    int below = y + 1;
+    int below = row + 1;
     if (below >= BOARD_HEIGHT)
         below = 0;
 
-    int left = x - 1;
+    int left = col - 1;
     if (left < 0)
         left = BOARD_WIDTH;
 
-    int right = x + 1;
+    int right = col + 1;
     if (right >= BOARD_WIDTH) {
         right = 0;
     }
 
     int live = 0;
-    for (int xx = left; xx <= right; ++xx) {
-        for (int yy = above; yy <= below; ++yy) {
-            if (xx == x && yy == y)
+    for (int dcol = left; dcol <= right; ++dcol) {
+        for (int drow = above; drow <= below; ++drow) {
+            if (dcol == col && drow == row)
                 continue;
 
-            live += _cells[xx][yy];
+            live += _cells[drow][dcol];
         }
     }
     return live;
@@ -57,10 +57,10 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
 }
 
 // Single-threaded, original version:
-//void Board::evolve(const Board &previousBoard) {
-//    for (int x=0; x<BOARD_WIDTH; ++x) {
-//        for (int y=0; y<BOARD_HEIGHT; ++y) {
-//            _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
+//void Board::evolve(const Board& previousBoard) {
+//    for (int col = 0; col < BOARD_WIDTH; ++col) {
+//        for (int row = 0; row < BOARD_HEIGHT; ++row) {
+//            _cells[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
 //        }
 //    }
 //}
@@ -69,9 +69,9 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
 void Board::evolve(const Board& previousBoard) {
     // The lambda doesn't need to be defined separately like this;
     // this is just to help readability.
-    auto lambda = [&](int x) {
-        for (int y = 0; y < BOARD_HEIGHT; ++y) {
-            _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
+    auto lambda = [&](int col) {
+        for (int row = 0; row < BOARD_HEIGHT; ++row) {
+            _cells[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
         }
         };
 
@@ -79,19 +79,19 @@ void Board::evolve(const Board& previousBoard) {
 }
 
 void Board::randomize(const int ratio) {
-    for (int y = 0; y < BOARD_HEIGHT; ++y) {
-        for (int x = 0; x < BOARD_WIDTH; ++x) {
+    for (int row = 0; row < BOARD_HEIGHT; ++row) {
+        for (int col = 0; col < BOARD_WIDTH; ++col) {
             if (rand() % 100 < ratio)
-                _cells[x][y] = 1;
+                _cells[row][col] = 1;
         }
         std::cout << std::endl;
     }
 }
 
 void Board::print() {
-    for (int y = 0; y < BOARD_HEIGHT; ++y) {
-        for (int x = 0; x < BOARD_WIDTH; ++x) {
-            if (_cells[x][y] == 1)
+    for (int row = 0; row < BOARD_HEIGHT; ++row) {
+        for (int col = 0; col < BOARD_WIDTH; ++col) {
+            if (_cells[row][col] == 1)
                 std::cout << "*";
             else
                 std::cout << " ";
@@ -99,5 +99,4 @@ void Board::print() {
         std::cout << std::endl;
     }
     std::cout << std::endl;
-
 }
