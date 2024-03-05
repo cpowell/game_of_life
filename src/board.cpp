@@ -69,13 +69,12 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
 void Board::evolve(const Board& previousBoard) {
     // The lambda doesn't need to be defined separately like this;
     // this is just to help readability.
-    auto lambda = [&](int col) {
-        for (int row = 0; row < BOARD_HEIGHT; ++row) {
+    auto lambda = [&](int row) {
+        for (int col = 0; col < BOARD_WIDTH; ++col) {
             _cells[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
         }
-        };
-
-    tbb::parallel_for(0, BOARD_WIDTH, lambda);
+    };
+    tbb::parallel_for(0, BOARD_HEIGHT, lambda);
 }
 
 void Board::randomize(const int ratio) {
