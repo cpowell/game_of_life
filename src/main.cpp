@@ -12,6 +12,8 @@
 
 #include <chrono>
 #include <cstdlib>
+#include <iostream>
+#include <thread>
 
 int main() {
     // There are two boards defined; the one "in back" is updated based
@@ -31,8 +33,9 @@ int main() {
         // To see the Intel TBB parallelism at work, comment out these
         // next two lines to let the program run unfettered. It will
         // maximize your available cores.
-        //flop.print();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        std::cout << "\033[2J\033[1;1H"; // clear the screen (linux and windows)
+        flop.print();
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         std::swap(flip, flop);
     }
