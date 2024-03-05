@@ -16,27 +16,27 @@ int Board::getCell(const int x, const int y) const {
 }
 
 int Board::getLiveNeighborCountForCell(const int x, const int y) const {
-    int above = y-1;
+    int above = y - 1;
     if (above < 0)
         above = BOARD_HEIGHT;
 
-    int below = y+1;
+    int below = y + 1;
     if (below >= BOARD_HEIGHT)
         below = 0;
 
-    int left = x-1;
+    int left = x - 1;
     if (left < 0)
         left = BOARD_WIDTH;
 
-    int right = x+1;
+    int right = x + 1;
     if (right >= BOARD_WIDTH) {
         right = 0;
     }
 
     int live = 0;
-    for (int xx=left; xx<=right; ++xx) {
-        for (int yy=above; yy<=below; ++yy) {
-            if (xx==x && yy==y)
+    for (int xx = left; xx <= right; ++xx) {
+        for (int yy = above; yy <= below; ++yy) {
+            if (xx == x && yy == y)
                 continue;
 
             live += _cells[xx][yy];
@@ -46,7 +46,7 @@ int Board::getLiveNeighborCountForCell(const int x, const int y) const {
 }
 
 int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
-    if (curState==ALIVE) {
+    if (curState == ALIVE) {
         if (numLiveNeighbors < 2 || numLiveNeighbors > 3)
             return DEAD;
     } else {
@@ -66,35 +66,35 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
 //}
 
 // Multithreaded TBB version (example):
-void Board::evolve(const Board &previousBoard) {
+void Board::evolve(const Board& previousBoard) {
     // The lambda doesn't need to be defined separately like this;
     // this is just to help readability.
     auto lambda = [&](int x) {
-        for (int y=0; y<BOARD_HEIGHT; ++y) {
+        for (int y = 0; y < BOARD_HEIGHT; ++y) {
             _cells[x][y] = evolveCell(previousBoard.getCell(x, y), previousBoard.getLiveNeighborCountForCell(x, y));
         }
-    };
+        };
 
     tbb::parallel_for(0, BOARD_WIDTH, lambda);
 }
 
 void Board::randomize(const int ratio) {
-    for (int y=0; y<BOARD_HEIGHT; ++y) {
-        for (int x=0; x<BOARD_WIDTH; ++x) {
+    for (int y = 0; y < BOARD_HEIGHT; ++y) {
+        for (int x = 0; x < BOARD_WIDTH; ++x) {
             if (rand() % 100 < ratio)
-                _cells[x][y]=1;
+                _cells[x][y] = 1;
         }
         std::cout << std::endl;
     }
 }
 
 void Board::print() {
-    for (int y=0; y<BOARD_HEIGHT; ++y) {
-        for (int x=0; x<BOARD_WIDTH; ++x) {
-            if (_cells[x][y]==1)
-                std::cout<< "*";
+    for (int y = 0; y < BOARD_HEIGHT; ++y) {
+        for (int x = 0; x < BOARD_WIDTH; ++x) {
+            if (_cells[x][y] == 1)
+                std::cout << "*";
             else
-                std::cout<< " ";
+                std::cout << " ";
         }
         std::cout << std::endl;
     }

@@ -21,7 +21,7 @@ int main() {
     Board flip, flop;
 
     // Seed the RNG and set up a random smattering of live cells.
-    srand((unsigned int) time(NULL));
+    srand((unsigned int)time(NULL));
     flip.randomize(20);
 
     // This routine evolves and prints the board forever; you must
@@ -32,8 +32,8 @@ int main() {
         // To see the Intel TBB parallelism at work, comment out these
         // next two lines to let the program run unfettered. It will
         // maximize your available cores.
-        flop.print();
-        // std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        //flop.print();
+        //std::this_thread::sleep_for(std::chrono::milliseconds(150));
 
         std::swap(flip, flop);
     }

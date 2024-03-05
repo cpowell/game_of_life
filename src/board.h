@@ -8,19 +8,16 @@
 //  You can redistribute and/or modify this software only in accordance with
 //  the terms found in the "LICENSE" file included with the source code.
 //
-
 #pragma once
-
-
 
 #include <iostream>
 #include <tbb/tbb.h>
 
-const int BOARD_WIDTH  = 25;
+const int BOARD_WIDTH = 25;
 const int BOARD_HEIGHT = 25;
 
 const int ALIVE = 1;
-const int DEAD  = 0;
+const int DEAD = 0;
 
 /**
  * \brief The grid for the celluar automata.
@@ -64,7 +61,7 @@ public:
      Evolve a whole board one cycle.
      @param previousBoard holds the prior cycle's state so we can see what to do
      */
-    void evolve(const Board &previousBoard);
+    void evolve(const Board& previousBoard);
 
     /**
      Randomize a board with an intial state.
