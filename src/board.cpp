@@ -11,6 +11,9 @@
 
 #include "board.h"
 
+#include <iostream>
+#include <tbb/tbb.h>
+
 int Board::getCell(const int col, const int row) const {
     return _cells[row][col];
 }

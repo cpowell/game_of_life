@@ -8,11 +8,10 @@
 //  You can redistribute and/or modify this software only in accordance with
 //  the terms found in the "LICENSE" file included with the source code.
 //
-
-#include <iostream>
-#include <chrono>
-#include <thread>
 #include "board.h"
+
+#include <chrono>
+#include <cstdlib>
 
 int main() {
     // There are two boards defined; the one "in back" is updated based
@@ -32,8 +31,8 @@ int main() {
         // To see the Intel TBB parallelism at work, comment out these
         // next two lines to let the program run unfettered. It will
         // maximize your available cores.
-        flop.print();
-        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        //flop.print();
+        //std::this_thread::sleep_for(std::chrono::milliseconds(150));
 
         std::swap(flip, flop);
     }
