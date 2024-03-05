@@ -11,6 +11,7 @@
 
 #include "board.h"
 
+#include <cstdlib>
 #include <iostream>
 #include <tbb/tbb.h>
 
