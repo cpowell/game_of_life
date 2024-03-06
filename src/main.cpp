@@ -16,6 +16,7 @@
 #include <thread>
 #include <utility>
 #include <SFML/Graphics.hpp>
+#include <tbb/tbb.h>
 
 using namespace sf;
 
@@ -30,7 +31,7 @@ int main() {
     settings.antialiasingLevel = 4;
     pwind = std::make_unique<sf::RenderWindow>(
         sf::VideoMode{ wndWidth, wndHeight }, "Game AI Example", sf::Style::Default, settings);
-    pwind->setFramerateLimit(30);
+    pwind->setFramerateLimit(10); // This FPS will set the simulation rate
 
     // Set up some useful shapes
     live_cell.setPointCount(4);
@@ -85,11 +86,7 @@ int main() {
 
         flop.evolve(flip);
 
-        // To see the Intel TBB parallelism at work, comment out these
-        // next two lines to let the program run unfettered. It will
-        // maximize your available cores.
-        std::cout << "\033[2J\033[1;1H"; // clear the screen (linux and windows)
-
+        // Render
         for (int row = 0; row < BOARD_HEIGHT; ++row) {
             int y = row * 15;
             for (int col = 0; col < BOARD_WIDTH; ++col) {
@@ -104,9 +101,8 @@ int main() {
                 }
             }
         }
-        pwind->display();
 
-        //std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        pwind->display();
 
         std::swap(flip, flop);
     }
