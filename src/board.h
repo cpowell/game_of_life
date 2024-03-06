@@ -10,7 +10,7 @@
 //
 #pragma once
 
-const int BOARD_WIDTH = 25;
+const int BOARD_WIDTH = 50;
 const int BOARD_HEIGHT = 25;
 
 const int ALIVE = 1;
@@ -70,5 +70,5 @@ public:
     /**
      Output a board state to console.
      */
-    void print();
+    void print() const;
 };
