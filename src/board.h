@@ -10,8 +10,8 @@
 //
 #pragma once
 
-const int BOARD_WIDTH = 50;
-const int BOARD_HEIGHT = 25;
+const int BOARD_WIDTH = 100;
+const int BOARD_HEIGHT = 100;
 
 const int ALIVE = 1;
 const int DEAD = 0;
