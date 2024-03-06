@@ -16,10 +16,18 @@
 #include <iostream>
 #include <tbb/tbb.h>
 
+/// Retrieve the live/dead status of the given cell.
+/// @param col the y coordinate
+/// @param row the x coordinate
+/// @return 1 for alive, 0 for dead
 int Board::getCell(const int col, const int row) const {
     return _cells[row][col];
 }
 
+/// Look at all adjacent cells and count how many are 'alive'.
+/// @param col the y coordinate of the 'interesting' cell
+/// @param row the x coordinate of the 'interesting' cell
+/// @return the number of adjacent live cells
 int Board::getLiveNeighborCountForCell(const int col, const int row) const {
     int above = std::clamp(row - 1, 0, BOARD_HEIGHT);
     int below = std::clamp(row + 1, 0, BOARD_HEIGHT);
@@ -38,6 +46,10 @@ int Board::getLiveNeighborCountForCell(const int col, const int row) const {
     return live;
 }
 
+/// Evolve a cell based on the number of live neighbors it has.
+/// @param curState whether the 'interesting' cell is alive or dead
+/// @param numLiveNeighbors how many adjacent cells are alive
+/// @return the new state (alive or dead) of the cell
 int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
     if (curState == ALIVE) {
         if (numLiveNeighbors < 2 || numLiveNeighbors > 3)
@@ -58,7 +70,8 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
 //    }
 //}
 
-// Multithreaded TBB version (example):
+/// Evolve a whole board one cycle.
+/// @param previousBoard holds the prior cycle's state so we can see what to do
 void Board::evolve(const Board& previousBoard) {
     // The lambda doesn't need to be defined separately like this;
     // this is just to help readability.
@@ -70,6 +83,8 @@ void Board::evolve(const Board& previousBoard) {
     tbb::parallel_for(0, BOARD_HEIGHT, lambda);
 }
 
+/// Randomize a board with an intial state.
+/// @param ratio approximately what number, out of 100, should be living
 void Board::randomize(const int ratio) {
     for (auto& row : _cells) {
         for (int& cell : row) {
@@ -80,11 +95,12 @@ void Board::randomize(const int ratio) {
     }
 }
 
+/// Output a board state to console.
 void Board::print() const {
     for (const auto& row : _cells) {
         for (int cell : row) {
             if (cell == ALIVE)
-                std::cout << "*";
+                std::cout << "O";
             else
                 std::cout << " ";
         }

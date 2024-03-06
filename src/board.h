@@ -29,46 +29,15 @@ private:
     int _cells[BOARD_HEIGHT][BOARD_WIDTH] = {};
 
 public:
-    /**
-     Retrieve the live/dead status of the given cell.
-     @param row the x coordinate
-     @param col the y coordinate
-     @return 1 for alive, 0 for dead
-     */
     int getCell(const int col, const int row) const;
 
-    /**
-     Look at all adjacent cells and count how many are 'alive'.
-
-     @param row the x coordinate of the 'interesting' cell
-     @param col the y coordinate of the 'interesting' cell
-     @return the number of adjacent live cells
-     */
     int getLiveNeighborCountForCell(const int col, const int row) const;
 
-    /**
-     Evolve a cell based on the number of live neighbors it has.
-
-     @param curState whether the 'interesting' cell is alive or dead
-     @param numLiveNeighbors how many adjacent cells are alive
-     @return the new state (alive or dead) of the cell
-     */
     int evolveCell(const int curState, const int numLiveNeighbors) const;
 
-    /**
-     Evolve a whole board one cycle.
-     @param previousBoard holds the prior cycle's state so we can see what to do
-     */
     void evolve(const Board& previousBoard);
 
-    /**
-     Randomize a board with an intial state.
-     @param ratio approximately what number, out of 100, should be living
-     */
     void randomize(const int ratio);
 
-    /**
-     Output a board state to console.
-     */
     void print() const;
 };
