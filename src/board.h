@@ -26,7 +26,7 @@ class Board {
 
 private:
     //         ROWS          COLS
-    int _cells[BOARD_HEIGHT][BOARD_WIDTH] = {};
+    int cells_[BOARD_HEIGHT][BOARD_WIDTH] = {};
 
 public:
     int getCell(const int col, const int row) const;

@@ -21,7 +21,7 @@
 /// @param row the x coordinate
 /// @return 1 for alive, 0 for dead
 int Board::getCell(const int col, const int row) const {
-    return _cells[row][col];
+    return cells_[row][col];
 }
 
 /// Look at all adjacent cells and count how many are 'alive'.
@@ -40,7 +40,7 @@ int Board::getLiveNeighborCountForCell(const int col, const int row) const {
             if (drow == row && dcol == col)
                 continue;
 
-            live += _cells[drow][dcol];
+            live += cells_[drow][dcol];
         }
     }
     return live;
@@ -65,7 +65,7 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
 //void Board::evolve(const Board& previousBoard) {
 //    for (int col = 0; col < BOARD_WIDTH; ++col) {
 //        for (int row = 0; row < BOARD_HEIGHT; ++row) {
-//            _cells[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
+//            cells_[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
 //        }
 //    }
 //}
@@ -77,7 +77,7 @@ void Board::evolve(const Board& previousBoard) {
     // this is just to help readability.
     auto lambda = [&](int row) {
         for (int col = 0; col < BOARD_WIDTH; ++col) {
-            _cells[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
+            cells_[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
         }
         };
     tbb::parallel_for(0, BOARD_HEIGHT, lambda);
@@ -86,25 +86,24 @@ void Board::evolve(const Board& previousBoard) {
 /// Randomize a board with an intial state.
 /// @param ratio approximately what number, out of 100, should be living
 void Board::randomize(const int ratio) {
-    for (auto& row : _cells) {
+    for (auto& row : cells_) {
         for (int& cell : row) {
             if (rand() % 100 < ratio)
                 cell = ALIVE;
         }
-        std::cout << std::endl;
     }
 }
 
 /// Output a board state to console.
 void Board::print() const {
-    for (const auto& row : _cells) {
+    for (const auto& row : cells_) {
         for (int cell : row) {
             if (cell == ALIVE)
                 std::cout << "O";
             else
                 std::cout << " ";
         }
-        std::cout << std::endl;
+        std::cout << '\n';
     }
-    std::cout << std::endl;
+    std::cout << '\n';
 }
