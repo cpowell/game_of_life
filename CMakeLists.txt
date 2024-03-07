@@ -1,40 +1,17 @@
 cmake_minimum_required(VERSION 3.27)
-#set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
 project(GOL)
 
-add_subdirectory (src)
+set(CMAKE_CXX_STANDARD 20)
+#set(CMAKE_EXE_LINKER_FLAGS "-static")
+set(CMAKE_TOOLCHAIN_FILE C:/Code/_cpp/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
-#======================
-# Testing stuff...
+set(CMAKE_PREFIX_PATH C:/Code/_cpp/vcpkg/installed/x64-windows/share/sfml)
+set(TBB_DIR C:/Code/_cpp/vcpkg/installed/x64-windows/share/tbb)
+find_package(TBB REQUIRED tbb)
+find_package(SFML REQUIRED system window graphics network audio)
 
-# Enable a 'test' build target
-#enable_testing()
-
-#--------------
-# Unit Tests
-#
-
-# Where are the relevant sources and their includes?
-# set(TEST_SRCS src/board.cpp test/board_test.cpp)
-file(GLOB TEST_SRCS test/*.cpp src/board.cpp)
-include_directories("${CMAKE_SOURCE_DIR}/include")
-
-# Since we're using real classes via fixtures, we're going
-# to need TBB linked.
-#link_directories(${CMAKE_SOURCE_DIR}/ext/tbb41_20130613oss/lib)
-
-# For ctest / make test
-#add_test(NAME UnitTests COMMAND run_unit_tests)
-
-# Make a standalone test executable (separate from ctest / make test)
-add_executable(run_unit_tests ${TEST_SRCS})
-
-# Link the test executable against gtest & gtest_main
-target_link_libraries(run_unit_tests gtest gtest_main tbb tbbmalloc)
-
-#--------------
-# Google Test
-#
-
-#ADD_SUBDIRECTORY (ext/googletest-read-only)
-#include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+file(GLOB SOURCES src/*.cpp) # Create a variable containing all .cpp files
+add_executable(GOL ${SOURCES})
+target_include_directories(GOL PRIVATE C:/Code/_cpp/vcpkg/installed/x64-windows/include)
+target_link_directories(GOL PRIVATE C:/Code/_cpp/vcpkg/installed/x64-windows/debug/lib C:/Code/_cpp/vcpkg/installed/x64-windows/lib)
+target_link_libraries(GOL tbb12 sfml-graphics sfml-window sfml-system sfml-audio sfml-network)
