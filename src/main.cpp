@@ -13,24 +13,22 @@
 #include <chrono>
 #include <cstdlib>
 #include <iostream>
-#include <thread>
-#include <utility>
 #include <SFML/Graphics.hpp>
 #include <tbb/tbb.h>
-
-using namespace sf;
+#include <thread>
+#include <utility>
 
 int main() {
-    const unsigned int worldsz = 1500;
+    const int CELL_SIZE = 15;
+    const unsigned int worldsz = CELL_SIZE * 100;
+
+    // Set up the rendering window
     const unsigned int wndWidth{ worldsz }, wndHeight{ worldsz };
     sf::ContextSettings settings;
     sf::ConvexShape live_cell, dead_cell;
     std::unique_ptr<sf::RenderWindow> pwind;
-
-    // Set up the rendering window
     settings.antialiasingLevel = 4;
-    pwind = std::make_unique<sf::RenderWindow>(
-        sf::VideoMode{ wndWidth, wndHeight }, "Game AI Example", sf::Style::Default, settings);
+    pwind = std::make_unique<sf::RenderWindow>(sf::VideoMode{ wndWidth, wndHeight }, "Game of Life", sf::Style::Default, settings);
     pwind->setFramerateLimit(10); // This FPS will set the simulation rate
 
     // Set up some useful shapes
@@ -40,9 +38,9 @@ int main() {
     live_cell.setOutlineColor(sf::Color::Blue);
     live_cell.setOrigin(0, 0);
     live_cell.setPoint(0, sf::Vector2f{ 0, 0 });
-    live_cell.setPoint(1, sf::Vector2f{ 15, 0 });
-    live_cell.setPoint(2, sf::Vector2f{ 15, 15 });
-    live_cell.setPoint(3, sf::Vector2f{ 0, 15 });
+    live_cell.setPoint(1, sf::Vector2f{ CELL_SIZE, 0 });
+    live_cell.setPoint(2, sf::Vector2f{ CELL_SIZE, CELL_SIZE });
+    live_cell.setPoint(3, sf::Vector2f{ 0, CELL_SIZE });
 
     dead_cell.setPointCount(4);
     dead_cell.setFillColor(sf::Color::Black);
@@ -50,9 +48,9 @@ int main() {
     dead_cell.setOutlineColor(sf::Color::Blue);
     dead_cell.setOrigin(0, 0);
     dead_cell.setPoint(0, sf::Vector2f{ 0, 0 });
-    dead_cell.setPoint(1, sf::Vector2f{ 15, 0 });
-    dead_cell.setPoint(2, sf::Vector2f{ 15, 15 });
-    dead_cell.setPoint(3, sf::Vector2f{ 0, 15 });
+    dead_cell.setPoint(1, sf::Vector2f{ CELL_SIZE, 0 });
+    dead_cell.setPoint(2, sf::Vector2f{ CELL_SIZE, CELL_SIZE });
+    dead_cell.setPoint(3, sf::Vector2f{ 0, CELL_SIZE });
 
     // There are two boards defined; the one "in back" is updated based
     // on the current status of the one "in front", then brought to the
@@ -88,9 +86,9 @@ int main() {
 
         // Render
         for (int row = 0; row < BOARD_HEIGHT; ++row) {
-            int y = row * 15;
+            int y = row * CELL_SIZE;
             for (int col = 0; col < BOARD_WIDTH; ++col) {
-                int x = col * 15;
+                int x = col * CELL_SIZE;
                 int cell = flop.getCell(col, row);
                 if (cell == ALIVE) {
                     live_cell.setPosition((float)x, (float)y);
