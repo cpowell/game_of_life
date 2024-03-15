@@ -50,7 +50,7 @@ int Board::getLiveNeighborCountForCell(const int col, const int row) const {
 /// @param curState whether the 'interesting' cell is alive or dead
 /// @param numLiveNeighbors how many adjacent cells are alive
 /// @return the new state (alive or dead) of the cell
-int Board::evolveCell(const int curState, const int numLiveNeighbors) const {
+int Board::evolveCell(const int curState, const int numLiveNeighbors) {
     if (curState == ALIVE) {
         if (numLiveNeighbors < 2 || numLiveNeighbors > 3)
             return DEAD;

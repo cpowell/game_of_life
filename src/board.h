@@ -29,11 +29,11 @@ private:
     int cells_[BOARD_HEIGHT][BOARD_WIDTH] = {};
 
 public:
-    int getCell(const int col, const int row) const;
+    [[nodiscard]] int getCell(const int col, const int row) const;
 
-    int getLiveNeighborCountForCell(const int col, const int row) const;
+    [[nodiscard]] int getLiveNeighborCountForCell(const int col, const int row) const;
 
-    int evolveCell(const int curState, const int numLiveNeighbors) const;
+    [[nodiscard]] static int evolveCell(const int curState, const int numLiveNeighbors) ;
 
     void evolve(const Board& previousBoard);
 

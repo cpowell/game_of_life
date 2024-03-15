@@ -59,8 +59,8 @@ int main() {
     Board flip, flop;
 
     // Seed the RNG and set up a random smattering of live cells.
-    srand((unsigned int)time(NULL));
-    flip.randomize(20);
+    srand((unsigned int)time(nullptr));
+    flip.randomize(40);
 
     // This routine evolves and prints the board forever; you must
     // terminate the program.
@@ -105,6 +105,4 @@ int main() {
 
         std::swap(flip, flop);
     }
-
-    return 0;
 }
