@@ -34,7 +34,7 @@ int main() {
 
     // Set up some useful shapes
     live_cell.setPointCount(4);
-    live_cell.setFillColor(sf::Color::Blue);
+    live_cell.setFillColor(sf::Color::Green);
     live_cell.setOutlineThickness(1);
     live_cell.setOutlineColor(sf::Color::Blue);
     live_cell.setOrigin(0, 0);
