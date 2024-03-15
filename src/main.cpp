@@ -10,17 +10,17 @@
 //
 #include "board.h"
 
+#include <SFML/Graphics.hpp>
 #include <chrono>
 #include <cstdlib>
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include <tbb/tbb.h>
 #include <thread>
 #include <utility>
 
 int main() {
-    const int CELL_SIZE = 15;
-    const unsigned int worldsz = CELL_SIZE * 100;
+    const int CELL_SIZE = 10;
+    const unsigned int worldsz = CELL_SIZE * 150;
 
     // Set up the rendering window
     const unsigned int wndWidth{ worldsz }, wndHeight{ worldsz };
@@ -28,7 +28,8 @@ int main() {
     sf::ConvexShape live_cell, dead_cell;
     std::unique_ptr<sf::RenderWindow> pwind;
     settings.antialiasingLevel = 4;
-    pwind = std::make_unique<sf::RenderWindow>(sf::VideoMode{ wndWidth, wndHeight }, "Game of Life", sf::Style::Default, settings);
+    pwind =
+    std::make_unique<sf::RenderWindow>(sf::VideoMode{ wndWidth, wndHeight }, "Game of Life", sf::Style::Default, settings);
     pwind->setFramerateLimit(10); // This FPS will set the simulation rate
 
     // Set up some useful shapes
