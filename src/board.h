@@ -33,7 +33,7 @@ public:
 
     [[nodiscard]] int getLiveNeighborCountForCell(const int col, const int row) const;
 
-    [[nodiscard]] static int evolveCell(const int curState, const int numLiveNeighbors) ;
+    [[nodiscard]] static int evolveCell(const int curState, const int numLiveNeighbors);
 
     void evolve(const Board& previousBoard);
 
