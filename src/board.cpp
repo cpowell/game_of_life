@@ -62,7 +62,7 @@ int Board::evolveCell(const int curState, const int numLiveNeighbors) {
 }
 
 // Single-threaded, original version:
-//void Board::evolve(const Board& previousBoard) {
+// void Board::evolve(const Board& previousBoard) {
 //    for (int col = 0; col < BOARD_WIDTH; ++col) {
 //        for (int row = 0; row < BOARD_HEIGHT; ++row) {
 //            cells_[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
@@ -77,9 +77,10 @@ void Board::evolve(const Board& previousBoard) {
     // this is just to help readability.
     auto lambda = [&](int row) {
         for (int col = 0; col < BOARD_WIDTH; ++col) {
-            cells_[row][col] = evolveCell(previousBoard.getCell(col, row), previousBoard.getLiveNeighborCountForCell(col, row));
+            cells_[row][col] = evolveCell(previousBoard.getCell(col, row),
+                                          previousBoard.getLiveNeighborCountForCell(col, row));
         }
-        };
+    };
     tbb::parallel_for(0, BOARD_HEIGHT, lambda);
 }
 
